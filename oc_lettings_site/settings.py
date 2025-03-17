@@ -27,7 +27,6 @@ ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'yourdomain.com']
 
 INSTALLED_APPS = [
     'profiles',
-    'oc_lettings_site',
     'lettings',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -35,6 +34,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'whitenoise.runserver_nostatic',
 ]
 
 MIDDLEWARE = [
@@ -118,7 +118,11 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / "static",]
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+    BASE_DIR / "assets",
+]
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 

@@ -78,3 +78,5 @@ Not Found: /static/assets/img/logo.png
 "GET /static/assets/img/logo.png HTTP/1.1" 404 3401
 Not Found: /lettings/999/
 Not Found: /profiles/unknown/
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2452
