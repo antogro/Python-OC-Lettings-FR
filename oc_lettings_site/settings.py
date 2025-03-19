@@ -26,8 +26,6 @@ ALLOWED_HOSTS = [
     os.getenv("RENDER_HOST", "python-oc-lettings-fr-b5op.onrender.com")
 ]
 
-
-
 # Application definition
 
 INSTALLED_APPS = [
