@@ -25,9 +25,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Collect static files
-        run: python manage.py collectstatic --noinput
-
       - name: Lint with flake8
         run: flake8 .
 
@@ -52,9 +49,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-
-      - name: Debug Docker Username
-        run: echo "Docker Username is '${{ secrets.DOCKER_USERNAME }}'"
 
       - name: Log in to Docker Hub
         run: |
