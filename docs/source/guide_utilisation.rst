@@ -3,7 +3,6 @@ Guide d'utilisation
 
 Ce guide décrit les fonctionnalités principales de l'application Orange County Lettings et comment les utiliser.
 
-
 Développement local
 -------------------
 
@@ -35,8 +34,8 @@ Développement local
 **Windows (PowerShell) :**
 
 .. code-block:: powershell
-    .venv\Scripts\activate
 
+   .venv\Scripts\activate
 
 Linting
 -------
@@ -61,22 +60,34 @@ Panel d'administration
 CI/CD
 -----
 
-- Lint + Tests sur chaque push
-- Docker image build + push si succès
+- Lint + Tests sur chaque push et pull request
+- Build + Push Docker si succès
+- Déploiement via webhook Render
+
+**Secrets GitHub Actions nécessaires :**
+
+- `DOCKER_USERNAME` : Nom d'utilisateur Docker Hub
+- `DOCKER_PAT` : token Docker Hub
+- `RENDER_DEPLOY_HOOK` : URL du hook Render
 
 Surveillance et logs
 --------------------
 
-- Sentry (`SENTRY_DSN`)
+- Sentry activé avec la variable `SENTRY_DSN`
 - Fichier `logs/django_errors.log`
+
+.. code-block:: ini
+
+   # Fichier .env à créer :
+   SENTRY_DSN=
 
 Déploiement
 -----------
 
 .. code-block:: bash
 
-   docker pull amtao/oc_lettings_site:latest
-   docker run -p 8000:8000 amtao/oc_lettings_site:latest
+   docker pull <dockerhub_username>/oc_lettings_site:latest
+   docker run -p 8000:8000 <dockerhub_username>/oc_lettings_site:latest
 
 Base de données
 ---------------
@@ -92,10 +103,13 @@ Routes principales
 
 - `/` : Accueil
 - `/lettings/` : Locations
+- `/lettings/<int:letting_id>/` : Détail d'une location
 - `/profiles/` : Profils
+- `/profiles/<str:username>` : Détail d’un profil
 - `/admin/` : Admin Django
 
 Contact
 -------
 
 En cas de problème, ouvrez une issue sur GitHub.
+
