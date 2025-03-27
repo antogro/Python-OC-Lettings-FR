@@ -3,34 +3,99 @@ Guide d'utilisation
 
 Ce guide décrit les fonctionnalités principales de l'application Orange County Lettings et comment les utiliser.
 
-Navigation générale
------------------
 
-L'application comporte une navigation simple avec plusieurs sections principales :
+Développement local
+-------------------
 
-- **Page d'accueil** : Point d'entrée avec des liens vers les principales sections
-- **Locations** : Consultation des annonces de location
-- **Profils** : Consultation des profils utilisateurs
-- **Administration** : Gestion des données (réservée aux administrateurs)
+**Prérequis :**
+- Compte GitHub avec accès en lecture
+- Git CLI, SQLite3, Python ≥ 3.6
+- Docker & Docker Compose
 
-Cas d'utilisation : Consulter les locations
-----------------------------------------
+**macOS / Linux :**
 
-**Étapes :**
+.. code-block:: bash
 
-1. Accédez à la page d'accueil : ``http://localhost:8000/``
-2. Cliquez sur le lien "Locations" ou naviguez directement vers ``http://localhost:8000/lettings/``
-3. Vous verrez la liste de toutes les locations disponibles
-4. Cliquez sur le titre d'une location pour voir ses détails
-5. Sur la page de détails, vous verrez le titre de la location et l'adresse complète
+   git clone https://github.com/OpenClassrooms-Student-Center/Python-OC-Lettings-FR.git
+   cd Python-OC-Lettings-FR
+   python -m venv .venv
+   source .venv/bin/activate
+   pip install -r requirements.txt
+   python manage.py runserver
 
-Cas d'utilisation : Consulter les profils
---------------------------------------
+- Aller sur : http://localhost:8000
 
-**Étapes :**
+**Utilisation de Docker :**
 
-1. Accédez à la page d'accueil : ``http://localhost:8000/``
-2. Cliquez sur le lien "Profils" ou naviguez directement vers ``http://localhost:8000/profiles/``
-3. Vous verrez la liste de tous les profils utilisateurs
-4. Cliquez sur un nom d'utilisateur pour voir les détails du profil
-5. Sur la page de détails, vous verrez le nom d'utilisateur et la ville favorite
+.. code-block:: bash
+
+   docker-compose up --build
+   docker-compose -f docker-compose.debug.yml up --build
+
+**Windows (PowerShell) :**
+
+.. code-block:: powershell
+    .venv\Scripts\activate
+
+
+Linting
+-------
+
+.. code-block:: bash
+
+   flake8
+
+Tests unitaires
+---------------
+
+.. code-block:: bash
+
+   pytest
+
+Panel d'administration
+----------------------
+
+- URL : http://localhost:8000/admin
+- Utilisateur : `admin` / Mot de passe : `Abc1234!`
+
+CI/CD
+-----
+
+- Lint + Tests sur chaque push
+- Docker image build + push si succès
+
+Surveillance et logs
+--------------------
+
+- Sentry (`SENTRY_DSN`)
+- Fichier `logs/django_errors.log`
+
+Déploiement
+-----------
+
+.. code-block:: bash
+
+   docker pull amtao/oc_lettings_site:latest
+   docker run -p 8000:8000 amtao/oc_lettings_site:latest
+
+Base de données
+---------------
+
+.. code-block:: bash
+
+   sqlite3 oc-lettings-site.sqlite3
+   .tables
+   .quit
+
+Routes principales
+------------------
+
+- `/` : Accueil
+- `/lettings/` : Locations
+- `/profiles/` : Profils
+- `/admin/` : Admin Django
+
+Contact
+-------
+
+En cas de problème, ouvrez une issue sur GitHub.

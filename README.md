@@ -2,6 +2,10 @@
 
 Site web d'Orange County Lettings, permettant la gestion des locations et profils.
 
+## Documentation ReadTheDocs
+
+**[Documentation sphinx](https://oc-holliday-home.readthedocs.io/fr/latest/index.html#)**
+
 ## Développement local
 
 ### Prérequis
@@ -9,7 +13,7 @@ Site web d'Orange County Lettings, permettant la gestion des locations et profil
 - Compte GitHub avec accès en lecture à ce repository
 - Git CLI
 - SQLite3 CLI
-- Interpréteur Python, version 3.6 ou supérieure
+- Interpréteur Python, version 3.10 ou supérieure
 - Docker et Docker Compose
 
 Dans le reste de la documentation sur le développement local, il est supposé que la commande `python` de votre OS shell exécute l'interpréteur Python ci-dessus (sauf si un environnement virtuel est activé).
@@ -58,7 +62,7 @@ docker-compose -f docker-compose.debug.yml up --build
 
 Utilisation de PowerShell, comme ci-dessus sauf :
 
-- Pour activer l'environnement virtuel : `venv\Scripts\Activate.ps1`
+- Pour activer l'environnement virtuel : `.venv\Scripts\activate`
 
 ## Linting
 
