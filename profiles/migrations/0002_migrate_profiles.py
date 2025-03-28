@@ -3,6 +3,7 @@ from django.db import migrations
 
 def migrate_profiles(apps, schema_editor):
     OldProfile = apps.get_model("profiles", "Profile")
+    # OldProfile = apps.get_model("oc_lettings_site", "Profile")
     NewProfile = apps.get_model("profiles", "Profile")
 
     for old_profile in OldProfile.objects.all():
