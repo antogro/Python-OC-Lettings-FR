@@ -32,12 +32,13 @@ Application Lettings:
             max_length=3, validators=[MinLengthValidator(3)]
          )
 
-Attributs:
-- ``number`` : numéro de l'adresse (entier limité à 9999)
-- ``street`` : nom de la rue (limité à 64 caractères)
-- ``city`` : la ville (limité à 64 caractères)
-- ``state`` : l'état (2 caratères)
-- ``zip_code`` : le code postal (entier limité à 99999)
+Attributs:\n
+
+- ``number`` : numéro de l'adresse (entier limité à 9999)\n
+- ``street`` : nom de la rue (limité à 64 caractères)\n
+- ``city`` : la ville (limité à 64 caractères)\n
+- ``state`` : l'état (2 caratères)\n
+- ``zip_code`` : le code postal (entier limité à 99999)\n
 - ``country_iso_code`` : le code ISO du pays (3 caractères)
 
 
@@ -46,13 +47,15 @@ Attributs:
 - Représente les locations des biens immobiliers :
    
    .. code-block:: python
+
       class Letting(models.Model):
          title = models.CharField(max_length=256)
          address = models.OneToOneField(Address, on_delete=models.CASCADE)
 
 Attributs:
-- ``title`` : titre de la location (limité à 256 caractères)
-- ``address`` : Relation OneToOne avec le modèle ``Address`` (suppression en cascade)
+
+- ``title`` : titre de la location (limité à 256 caractères)\n
+- ``address`` : Relation OneToOne avec le modèle ``Address`` (suppression en cascade)\n
 
 
 Application Profiles
@@ -63,13 +66,14 @@ Application Profiles
 Représente les profils des utilisateurs :
 
 .. code-block:: python
+
    class Profile(models.Model):
       user = models.OneToOneField(User, on_delete=models.CASCADE)
       favorite_city = models.CharField(max_length=64, blank=True)
 
-Attributs:
-- ``user`` : Relation OneToOne avec le modèle ``User`` (suppression en cascade)
-- ``favorite_city`` : la ville préférée (limité à 64 caractères)
+Attributs:\n
+- ``user`` : Relation OneToOne avec le modèle ``User`` (suppression en cascade)\n
+- ``favorite_city`` : la ville préférée (limité à 64 caractères)\n
 
 Modèle User (Django)
 --------------------

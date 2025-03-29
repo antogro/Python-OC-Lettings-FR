@@ -55,6 +55,19 @@ Et le linting :
 
 Si les tests et le linting s'executent sans erreur, l'installation est réussi.
 
+Installation de l'image Docker
+------------------------------
+
+Pour installer l'image Docker, vous devez d'abord vous assurer que Docker est installé et en cours d'exécution sur votre machine.
+Ensuite, vous pouvez exécuter la commande suivante pour construire l'image Docker :
+
+.. code-block:: bash
+
+    docker run -p 8000:8000 <DOCKER_USERNAME>/oc_lettings_site
+
+
+
+
 Configuration de l'environnement
 ------------------------------
 

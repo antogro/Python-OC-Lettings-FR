@@ -33,7 +33,7 @@ Outils de déploiments et d'integration continue
 - **Docker Compose** : Outil de gestion des conteneurs
 - **GitHub Actions** : Outil de CI/CD pour les déploiments automatiques
 - **Docker Hub** : Registre de conteneurs pour les déploiments
-- **Render** : 
+- **Render** : Outil de déploiement pour les applications web
 
 
 Outils de surveillance et de journalisation
