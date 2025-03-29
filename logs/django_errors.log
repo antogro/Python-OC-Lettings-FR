@@ -96,3 +96,9 @@ Not Found: /lettings/999/
 Not Found: /profiles/unknown/
 Not Found: /favicon.ico
 "GET /favicon.ico HTTP/1.1" 404 2452
+Not Found: /static/js/scripts.js
+Not Found: /static/css/styles.css
+"GET /static/js/scripts.js HTTP/1.1" 404 3401
+"GET /static/css/styles.css HTTP/1.1" 404 3401
+Not Found: /static/assets/img/logo.png
+"GET /static/assets/img/logo.png HTTP/1.1" 404 3401
