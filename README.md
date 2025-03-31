@@ -1,4 +1,4 @@
-## Résumé
+# Résumé
 
 Site web d'Orange County Lettings, permettant la gestion des locations et profils.
 
@@ -30,6 +30,13 @@ cd /path/to/Python-OC-Lettings-FR
 python -m venv venv
 source venv/bin/activate
 pip install --requirement requirements.txt
+```
+
+#### Préparer la base de données
+
+```sh
+python manage.py makemigrations
+python manage.py migrate
 ```
 
 #### Exécuter le site
@@ -69,8 +76,11 @@ flake8
 ## Tests unitaires
 
 ```sh
-pytest
+coverage run --source='.' manage.py test
+coverage report -m
 ```
+
+Les tests doivent atteindre au moins 80% de couverture pour que le pipeline CI/CD passe.
 
 ## Panel d'administration
 
@@ -127,7 +137,7 @@ L'application utilise SQLite par défaut. Pour interagir avec la base de donnée
 ```sh
 sqlite3 oc-lettings-site.sqlite3
 .tables  # Afficher les tables
-.quit  # Quitter
+.quit    # Quitter
 ```
 
 ## Routes principales
